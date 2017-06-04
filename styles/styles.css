@@ -1,0 +1,74 @@
+.react-md-container {
+  font-family: Helvetica Neue, sans-serif;
+}
+
+.react-md-textarea {
+  box-sizing: border-box;
+  font-size: 1em;
+  padding: 1em;
+  width: 100%;
+  height: 15em;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+
+.react-md-toolbar {
+  font-size: 9pt;
+  height: 29px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid #ddd;
+}
+
+div.react-md-tab {
+  background: #fff;
+}
+
+div.react-md-tab button {
+  margin: 2px;
+  margin-top: 0;
+
+  border-top-left-radius: 2px; 
+  border-top-right-radius: 2px; 
+  border: none;
+  border-bottom: 1px solid #ddd;
+
+  background: inherit;
+  float: left;
+  outline: none;
+  cursor: pointer;
+  height: 30px;
+  min-width: 5em;
+}
+
+div.react-md-tab button:first-child {
+  margin-left: 0;
+}
+
+div.react-md-tab button.active {
+  border: 1px solid #ddd;
+  border-bottom: none;
+  box-shadow: 4px 0 8px -4px #ddd, -4px 0 8px -4px #ddd;
+}
+
+.react-md-toolbar-item {
+  line-height: 30px;
+}
+
+.react-md-toolbar-button {
+  width: 25px;
+  border: none;
+  background: inherit;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: 7px;
+  border-radius: 2px;
+}
+
+.react-md-toolbar-button:hover {
+ box-shadow: 0 1px 10px #ddd;  
+}
+
+.react-md-preview-area {
+  padding-top: 1em;
+  border-top: 1px solid #ddd;
+}
