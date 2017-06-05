@@ -136,7 +136,12 @@ export default class MarkdownEditor extends Component {
           className="react-md-textarea"
           onChange={(event) => this.setState({ content: event.target.value }) }
           value={content} />
-        <textarea id={this.props.elementId} hidden={true} value={content} />
+        <textarea
+          readOnly
+          id={this.props.elementId}
+          name={this.props.elementName}
+          hidden={true}
+          value={content} />
       </div>
     );
   }
@@ -144,7 +149,8 @@ export default class MarkdownEditor extends Component {
 
 MarkdownEditor.defaultProps = {
   content: "",
-  elementId: "testing",
+  elementId: "",
+  elementId: "",
   asMarkdown: false,
   asHTML: false
 };
@@ -153,5 +159,6 @@ MarkdownEditor.propTypes = {
   content: PropTypes.string,
   asMarkdown: PropTypes.bool,
   asMarkdown: PropTypes.bool,
-  elementId: PropTypes.string
+  elementId: PropTypes.string,
+  elementName: PropTypes.string
 };

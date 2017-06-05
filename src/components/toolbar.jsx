@@ -10,6 +10,7 @@ const Toolbar = ({
 }) => {
   const buttons = toolbarButtons.map((obj, i) => (
     <button
+      type="button"
       title={obj.tooltip}
       onClick={() => obj.callback()}
       className="react-md-toolbar-button"
@@ -22,9 +23,11 @@ const Toolbar = ({
     <nav className="react-md-toolbar">
       <div className="react-md-tab">
         <button
+          type="button"
           className={isPreview ? "react-md-tablinks active" : "react-md-tablinks"}
           onClick={() => showMarkdown(false)}>Write</button>
         <button
+          type="button"
           className={isPreview ? "react-md-tablinks" : "react-md-tablinks active"}
           onClick={() => showMarkdown(true)}>Preview</button>
       </div>

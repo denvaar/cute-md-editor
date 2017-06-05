@@ -5,8 +5,15 @@ var isProductionBuild = process.env.NODE_ENV === 'production';
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
+    filename: 'dist/cute-md-editor.js',
     publicPath: '/',
+    libraryTarget: 'umd',
+    library: 'cute-md-editor'
+  },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+    showdown: 'showdown'
   },
   resolve: {
     extensions: ['.js', '.jsx']
@@ -36,6 +43,11 @@ module.exports = {
         test: /\.js?|\.jsx$/,
         exclude: /node_modules/,
         loaders: ['babel-loader']
+      },
+      {
+        test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+        include: /node_modules\/font-awesome/,
+        loader: 'url-loader'
       },
       {
         test: /\.(png|jpg|gif|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,

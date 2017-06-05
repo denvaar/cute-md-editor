@@ -1,13 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import '../styles/styles.css';
-
 import MarkdownEditor from './components/markdownEditor';
+import '../styles/styles.css';
+import 'font-awesome/css/font-awesome.min.css';
 
-ReactDOM.render(
-  <MarkdownEditor />,
-  document.getElementById('react-root')
-);
-
-if (module.hot) module.hot.accept();
+export default MarkdownEditor;

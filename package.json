@@ -1,8 +1,8 @@
 {
-  "name": "md-editor",
-  "version": "1.0.0",
+  "name": "cute-md-editor",
+  "version": "1.1.0",
   "description": "Markdown-based text editing",
-  "main": "index.js",
+  "main": "dist/cute-md-editor.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -14,15 +14,22 @@
     "markdown",
     "editor"
   ],
-  "author": "Denver Smith",
+  "author": "denvaar",
   "license": "MIT",
   "dependencies": {
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.5.10"
+  },
+  "peerDependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "font-awesome": "^4.7.0",
     "showdown": "^1.7.1"
   },
   "devDependencies": {
+    "font-awesome": "^4.7.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "showdown": "^1.7.1",
     "babel": "^6.23.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
