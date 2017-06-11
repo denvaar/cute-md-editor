@@ -2,9 +2,11 @@
 
 ### It's a Markdown text editor field :tada:
 
-<img width="767" alt="screen shot 2017-06-04 at 10 33 29 pm" src="https://cloud.githubusercontent.com/assets/10538978/26770671/e1b7b126-4975-11e7-9d54-259da6b999fc.png">
+<img width="631" alt="screen shot 2017-06-11 at 4 19 27 pm" src="https://user-images.githubusercontent.com/10538978/27015172-286ee5b8-4ec5-11e7-80a7-c6b1bc0faee2.png">
+
 
 - Uses [Showdown](https://github.com/showdownjs/showdown) to do the converting bewteeen markdown and HTML
+- Drag n drop file upload (optional)
 - Pretty & simple interface
 - Plops well into other projects
 - Made with :heart:
@@ -14,6 +16,7 @@
 - [x] Drag n Drop file uploads
 - [ ] Smarter toolbar buttons
 - [x] Get the bundle size smaller (Probably get rid of FontAwesome)
+  - update: Down to 22 Kb
 
 ## Install
 
