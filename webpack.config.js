@@ -1,10 +1,11 @@
 var webpack = require('webpack');
-
 var isProductionBuild = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: './src/index.js',
   output: {
+    //filename: 'bundle.js',
+    //publicPath: '/'
     filename: 'dist/cute-md-editor.js',
     publicPath: '/',
     libraryTarget: 'umd',

@@ -15,7 +15,9 @@ const Toolbar = ({
       onClick={() => obj.callback()}
       className="react-md-toolbar-button"
       key={i} >
-      <i className={`fa fa-${obj.icon}`} aria-hidden="true"></i>
+      <svg className={`icon icon-${obj.icon}`}>
+        <use xlinkHref={`#icon-${obj.icon}`}></use>
+      </svg>
     </button>
   ));
 

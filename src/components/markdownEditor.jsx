@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Showdown, { Converter } from 'showdown';
 
 import Toolbar from './toolbar';
+import FileUpload from './fileUpload';
+import SvgDefinitions from './svgDefinitions';
 
 
 export default class MarkdownEditor extends Component {
@@ -16,7 +18,7 @@ export default class MarkdownEditor extends Component {
     this.converter = new Converter();
     this.toolbarButtons = [
       {
-        icon: 'code',
+        icon: 'embed2',
         callback: this.appendCodeBlock.bind(this),
         tooltip: 'Format as code block'
       },
@@ -36,17 +38,17 @@ export default class MarkdownEditor extends Component {
         tooltip: 'Italicised text'
       },
       {
-        icon: 'quote-left',
+        icon: 'quotes-left',
         callback: this.handleQuoteButton.bind(this),
         tooltip: 'Format as quote'
       },
       {
-        icon: 'list-ul',
+        icon: 'list2',
         callback: this.handleUnorderedList.bind(this),
         tooltip: 'Format as unordered list'
       },
       {
-        icon: 'list-ol',
+        icon: 'list-numbered',
         callback: this.handleOrderedList.bind(this),
         tooltip: 'Format as ordered list'
       }
@@ -74,6 +76,10 @@ export default class MarkdownEditor extends Component {
       this.refs.textArea.focus();
       this.refs.textArea.selectionEnd = cursorPosition + (cursorEndPosition || newContent.length);
     });
+  }
+
+  handleFileUpload(path) {
+    this.insertContent(`![](${path})`);
   }
 
   handleLinkButton() {
@@ -110,6 +116,7 @@ export default class MarkdownEditor extends Component {
 
     return (
       <div className="react-md-container" >
+        <SvgDefinitions />
         <Toolbar
           isPreview={!asMarkdown}
           showMarkdown={(asMarkdown) => this.setState({ asMarkdown: asMarkdown })}
@@ -120,22 +127,31 @@ export default class MarkdownEditor extends Component {
         {
           asMarkdown &&
           asHTML &&
-          <div className="react-md-preview-area">{this.converter.makeHtml(content)}
+          <div className="react-md-preview-area">
+            {this.converter.makeHtml(content)}
           </div>
         }
         {
           asMarkdown &&
           !asHTML &&
-          <div className="react-md-preview-area" dangerouslySetInnerHTML={this.renderedHTML(content)}>
+          <div
+            className="react-md-preview-area"
+            dangerouslySetInnerHTML={this.renderedHTML(content)}>
           </div>
         }
-        {/* Always keeping this mounted so that undo/redo works with ctrl-z */}
-        <textarea
+        <FileUpload
           hidden={asMarkdown}
-          ref="textArea"
-          className="react-md-textarea"
-          onChange={(event) => this.setState({ content: event.target.value }) }
-          value={content} />
+          callback={(files) => testCallback(files)}
+          removeCallback={(path) => testRemove(path)}
+          uploadComplete={(files) => this.handleFileUpload(files)}>
+          {/* Always keeping this mounted so that undo/redo works with ctrl-z */}
+          <textarea
+            hidden={asMarkdown}
+            ref="textArea"
+            className="react-md-textarea"
+            onChange={(event) => this.setState({ content: event.target.value }) }
+            value={content} />
+        </FileUpload>
         <textarea
           readOnly
           id={this.props.elementId}
@@ -160,5 +176,7 @@ MarkdownEditor.propTypes = {
   asMarkdown: PropTypes.bool,
   asMarkdown: PropTypes.bool,
   elementId: PropTypes.string,
-  elementName: PropTypes.string
+  elementName: PropTypes.string,
+  uploadCallback: PropTypes.func,
+  removeCallback: PropTypes.func
 };

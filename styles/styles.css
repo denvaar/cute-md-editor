@@ -9,6 +9,7 @@
   width: 100%;
   height: 15em;
   border: 1px solid #ddd;
+  border-bottom: 1px dashed #ddd;
   border-radius: 2px;
 }
 
@@ -71,4 +72,30 @@ div.react-md-tab button.active {
 .react-md-preview-area {
   padding-top: 1em;
   border-top: 1px solid #ddd;
+}
+
+.dropzone-wrap .remove-btn {
+  cursor: pointer;
+  color: #2196f3;
+}
+
+.dropzone-wrap .dropzone-info {
+  background: #f7f7f7;
+  color: #92a1ad;
+  font-size: 9px;
+  margin: 0;
+  margin-top: -3px;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.icon {
+  display: inline-block;
+  width: 1.3em;
+  height: 1.3em;
+  stroke-width: 0;
+  stroke: #545454;
+  fill: #545454;
 }

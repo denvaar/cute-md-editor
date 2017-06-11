@@ -11,9 +11,9 @@
 
 ## TODO's
 
-- [ ] Drag n Drop file uploads
+- [x] Drag n Drop file uploads
 - [ ] Smarter toolbar buttons
-- [ ] Get the bundle size smaller (Probably get rid of FontAwesome)
+- [x] Get the bundle size smaller (Probably get rid of FontAwesome)
 
 ## Install
 
@@ -37,6 +37,33 @@ Available props:
 - `content` -- Initial content for the editor field.
 - `elementId` -- An id that will be placed on the underlying textarea.
 - `elementName` -- A name that will be placed on the underlying textarea.
+
+
+```javascript
+/* example using axios */
+import axios from 'axios';
+
+const callback = (files) => {
+  let data = new FormData();
+  data.append("expected_field_name_goes_here", files);
+  return axios.post("/path/to/image/upload/endpoint", data);
+};
+
+/* example using whatwg-fetch */
+import 'whatwg-fetch';
+
+const callback = (files) => {
+  let formData = new FormData();
+  formData.append("expected_field_name_goes_here", files);
+  let data = {
+    method: 'POST',
+    body: formData
+  };
+  return fetch("/path/to/image/upload/endpoint", data);
+};
+
+```
+
 
 ## License
 
